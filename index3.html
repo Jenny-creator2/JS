@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+        }
+        .image {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="mainImage" src="https://vet-centre.by/wp-content/uploads/2023/06/foto-ryzhego-kota-s-zelenymi-glazami-krupnym-planom.webp" class="image" alt="Поймай меня!">
+
+
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+    <img class="image" src="https://via.placeholder.com/100/ffffff/ffffff" alt="">
+
+
+    <script>
+        const images = document.querySelectorAll('.image');
+        let mainImage = images[0]; 
+
+
+        function moveImage() {
+  
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const randomImage = images[randomIndex];
+
+
+            [mainImage.src, randomImage.src] = [randomImage.src, mainImage.src];
+
+
+            mainImage.removeEventListener('mouseover', moveImage);
+            randomImage.addEventListener('mouseover', moveImage);
+
+            mainImage = randomImage;
+        }
+
+        mainImage.addEventListener('mouseover', moveImage);
+    </script>
+</body>
+</html>
+
+
+
+
+

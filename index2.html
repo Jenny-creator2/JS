@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2</title>
+</head>
+<body>
+    <h1>Все «Пятницы 13-е» текущего года</h1>
+    <ul id="fridayList"></ul>
+    <script>
+        function findFridays() {
+            const year = new Date().getFullYear();
+            const list = document.getElementById('fridayList');
+            for (let month = 0; month < 12; month++) {
+                const date = new Date(year, month, 13);
+                if (date.getDay() === 5) {
+                    const item = document.createElement('li');
+                    item.textContent = date.toDateString();
+                    list.appendChild(item);
+                }
+            }
+        }
+        findFridays();
+    </script>
+</body>
+</html>
